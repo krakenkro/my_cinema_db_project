@@ -1,4 +1,4 @@
-const url = `https://localhost:44391/odata`;
+const url = `https://localhost:44377/odata`;
 
 const vm = new Vue({
     el: '#app',
