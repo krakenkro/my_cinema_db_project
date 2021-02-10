@@ -40,7 +40,11 @@ namespace WebApp
 
             ODataConventionModelBuilder builder = new ODataConventionModelBuilder();
             builder.EntitySet<Movy>("Movies");
+            builder.EntitySet<Cinema>("Cinemas");
+            builder.EntitySet<Hall>("Halls");
             builder.EntitySet<Session>("Sessions");
+            builder.EntitySet<Ticket>("Tickets");
+            builder.EntitySet<Seat>("Seats");
             config.Routes.MapODataServiceRoute("odata", "odata", builder.GetEdmModel());
         }
     }
