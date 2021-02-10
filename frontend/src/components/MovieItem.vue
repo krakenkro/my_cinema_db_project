@@ -3,15 +3,14 @@
         <div class="movie-item-poster" :style="posterBG"></div>
         <div class="movie-info-wrap d-flex flex-column justify-content-between">
             <div class="movie-item-info">
-                <h3 class="movie-title">{{movie.first_name}}</h3>
-                <span class="movie-year">{{movie.id}}</span>
+                <h3 class="movie-title">{{movie.name}}</h3>
             </div>
             <div class="movie-item-controls row no-gutters">
                 <div class="col pr-2">
-                    <b-button size="md" block variant="outline-light" @click="showInfo">Читать</b-button>
+                    <b-button size="md" block variant="outline-light" @click="showInfoMovie">Подробнее</b-button>
                 </div>
                 <div class="col pr-2">
-                    <b-button size="md" block variant="outline-light">Удалить</b-button>
+                    <b-button size="md" block variant="outline-light">Купить</b-button>
                 </div>
             </div>
         </div>
@@ -29,12 +28,12 @@ export default {
     computed:{
         posterBG(){
             return{
-                'background-image': `url(${this.movie.avatar}`
+                'background-image': `url(${this.movie.img}`
             }
         }
     },
     methods:{
-        showInfo(){
+        showInfoMovie(){
             this.$emit('showModal',this.movie.id);
         }
     }

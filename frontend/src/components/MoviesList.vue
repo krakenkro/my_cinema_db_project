@@ -11,38 +11,49 @@
            </template>
        </b-row>
 
-       <b-modal :id="movieInfoModalID" size="xl" hide-footer hide-header>
-           <p>text</p>
-    
+       <b-modal body-class="movie-modal-body" :id="movieInfoModalID" size="xl" hide-footer hide-header>
+           <MovieModalContent :movie="selectedMovie" @closeModal="onCloseModal"/>
         </b-modal>
    </b-container>
 </template>
 <script>
-import MovieItem from './MovieItem'
+import MovieItem from './MovieItem';
+import MovieModalContent from './MovieModalContent';
 import axios from "axios";
-const url = "https://reqres.in/api/users?page=2"
+const url = "https://localhost:44319/odata/Movies"
 export default {
     name: 'MoviesList',
     data() {
     return {
         movies: [],
-        movieInfoModalID: 'movie-info'
+        movieInfoModalID: 'movie-info',
+        selectedMovieID: ''
     };
   },
   components: {
-    MovieItem
-
+    MovieItem,
+    MovieModalContent
+  },
+  computed:{
+      selectedMovie(){
+          return this.selectedMovieID ? this.movies[this.selectedMovieID] : null;
+      }
   },
   methods:{
       onShowMovieInfo(id){
-          console.log(id);
-          this.$bvmodal.show(this.movieInfoModalID)
+          console.log(id)
+          this.selectedMovieID = id;
+         this.$bvModal.show(this.movieInfoModalID);
+      },
+      onCloseModal(){
+          this.selectedMovieID = null;
+          this.$bvModal.hide(this.movieInfoModalID);
       }
   },
 
   async mounted() {
     await axios.get(url).then((response) => {
-      this.movies = response.data.data;
+      this.movies = response.data.value;
     });
   },
 }
@@ -51,5 +62,12 @@ export default {
 .list-title{
     font-size: 50px;
     margin-bottom: 30px;
+}
+
+</style>
+
+<style>
+.movie-modal-body {
+  padding: 0 !important;
 }
 </style>
