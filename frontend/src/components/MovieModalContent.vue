@@ -6,18 +6,13 @@
         </header>
         <div class="movie-info-content">
             <b-row>
-                <b-col sm="4">
-                    <div class="movie-poster-wrap">
-                        <div class="movie-poster" :style="posterStyle"></div>
-                    </div>
-                </b-col>
-                <b-col sm="8">
-                    <h3 class="movie-title">{{movie.name}}</h3>
-                    <p class="movie-description">{{ movie.description }}</p>
-                    <div class="mt-3 mb-4">
-                        <BBadge variant="success" class="mr-2">{{ movie.age_rest }}</BBadge>
-                        <BBadge variant="success" class="mr-2">{{ movie.genre }}</BBadge>
-                    </div>
+                <b-col>
+                    <b-embed
+                      type="iframe"
+                      aspect="16by9"
+                      :src="movie.trailer"
+                      allowfullscreen
+                    ></b-embed>
                 </b-col>
             </b-row>
         </div>

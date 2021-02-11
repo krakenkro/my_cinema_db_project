@@ -4,13 +4,14 @@
         <div class="movie-info-wrap d-flex flex-column justify-content-between">
             <div class="movie-item-info">
                 <h3 class="movie-title">{{movie.name}}</h3>
+                <span class="movie-descr">{{movie.description}}</span>
             </div>
             <div class="movie-item-controls row no-gutters">
                 <div class="col pr-2">
                     <b-button size="md" block variant="outline-light" @click="showInfoMovie">Подробнее</b-button>
                 </div>
                 <div class="col pr-2">
-                    <b-button size="md" block variant="outline-light">Купить</b-button>
+                    <b-button size="md" block variant="outline-light" @click="emitPurchase">Купить</b-button>
                 </div>
             </div>
         </div>
@@ -35,7 +36,8 @@ export default {
     methods:{
         showInfoMovie(){
             this.$emit('showModal',this.movie.id);
-        }
+        },
+       
     }
 }
 </script>
@@ -77,7 +79,7 @@ export default {
   color: #fff;
 }
 
-.movie-year {
+.movie-descr {
   font-size: 14px;
   color: #fff;
 }

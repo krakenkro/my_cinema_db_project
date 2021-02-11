@@ -5,12 +5,11 @@
            <template>
                <b-col cols="3" v-for="(movie, key) in movies" :key="key">
                    <MovieItem :movie="movie"
-                   @showModal="onShowMovieInfo"
+                   @showModal ="onShowMovieInfo"
                    />
                </b-col>
            </template>
        </b-row>
-
        <b-modal body-class="movie-modal-body" :id="movieInfoModalID" size="xl" hide-footer hide-header>
            <MovieModalContent :movie="selectedMovie" @closeModal="onCloseModal"/>
         </b-modal>
@@ -48,7 +47,8 @@ export default {
       onCloseModal(){
           this.selectedMovieID = null;
           this.$bvModal.hide(this.movieInfoModalID);
-      }
+      },
+
   },
 
   async mounted() {

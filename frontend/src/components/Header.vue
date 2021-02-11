@@ -2,7 +2,7 @@
   <header class="header">
     <BNavbar type="dark" class="navbar" >
       <BContainer>
-        <!-- <BNavbarBrand href="#">Cinema</BNavbarBrand> -->
+        
         <b-collapse id="nav-collapse" is-nav>
             <b-navbar-nav>
                 <b-nav-item style="font-size: 20px;" href="#">Фильмы</b-nav-item>
