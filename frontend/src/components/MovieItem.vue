@@ -37,6 +37,9 @@ export default {
         showInfoMovie(){
             this.$emit('showModal',this.movie.id);
         },
+        emitPurchase(){
+            this.$emit('purchaseModal', this.movie.id)
+        }
        
     }
 }

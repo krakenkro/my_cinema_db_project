@@ -1,20 +1,23 @@
 <template>
   <div id="app">
-     <Header/>
+    <Header/>
     <MoviesList/>
+    <Cinemas/>
   </div>
 </template>
 
 <script>
 import Header from './components/Header';
 import MoviesList from './components/MoviesList';
+import Cinemas from './components/Cinemas'
 
 
 export default {
   name: 'App',
   components: {
     Header,
-    MoviesList
+    MoviesList,
+    Cinemas
   }
 }
 </script>
